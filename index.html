@@ -1,19 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Todo App</title>
-    </head>
-    <body style="background-color: rgb(231, 221, 196); border: 10px solid black;">
-        <h1 style="font-size: 70px;text-align: center;">Todo App</h1>
-        <div style="text-align: center;">
-            <input style="background-color: rgb(185, 147, 134);color: rgb(41, 43, 44);width: 300px;height: 50px;font-size: 40px;border-radius: 10px;" placeholder="Enter items.." id="todoInput" type="text">
-            <button style="background-color: rgb(184, 175, 172);color: black;width: 300px;height: 50px;font-size: 40px;border-radius: 10px;" onclick="addTodo()">Add items</button>
-            <button style="background-color: rgb(184, 175, 172);color: black;width: 300px;height: 50px;font-size: 40px;border-radius: 10px;" onclick="deleteAllItems()">Delete All items</button>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-database.js"></script>
+    <title>Todo App</title>
+    <style>
+        body {
+            background-color: rgb(231, 221, 196);
+            border: 10px solid black;
+        }
+        h1 {
+            font-size: 70px;
+            text-align: center;
+        }
+        input, button {
+            background-color: rgb(185, 147, 134);
+            color: rgb(41, 43, 44);
+            width: 300px;
+            height: 50px;
+            font-size: 40px;
+            border-radius: 10px;
+            margin: 10px;
+        }
+        #ul-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            background: #fff;
+            margin: 5px 0;
+            border-radius: 10px;
+        }
+        .edit-btn, .delete-btn {
+            margin-left: 10px;
+            background-color: #f2b600;
+            color: #fff;
+            font-size: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .delete-btn {
+            background-color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
 
-        </div>
-        <ul id="list"></ul>
-        <script src="app.js"></script>
-    </body>
+    <h1>Todo App</h1>
+
+    <div style="text-align: center;">
+        <input id="todoInput" type="text" placeholder="Enter items...">
+        <button onclick="addTodo()">Add Item</button>
+        <button onclick="deleteAllItems()">Delete All Items</button>
+    </div>
+
+    <ul id="list"></ul>
+
+    <!-- <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+     -->
+    <!-- App JS -->
+    <script src="app.js"></script>
+
+</body>
 </html>
